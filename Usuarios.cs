@@ -280,7 +280,7 @@ namespace ListasUsuarios_Matriz
                 nodoMatriz nodoMatrizPila = matrizPila.raiz;
                 nodoMatriz auxCola = nodoMatrizCola;
                 nodoMatriz auxPila = nodoMatrizPila;
-                string cadena = "digraph { node[shape= box]; {rank=same;";
+                string cadena = "graph { node[shape= box]; {rank=same;";
                 int resultado = 0;
                 if (matrizCola.getX() == matrizPila.getY())
                 {
@@ -326,22 +326,22 @@ namespace ListasUsuarios_Matriz
                             {
                                 if (j == matrizPila.getX() -1)
                                 {
-                                    aux += j.ToString() + i.ToString() + "[dir = both] ";
+                                    aux += j.ToString() + i.ToString() + " ";
                                 }
                                 else
                                 {
-                                    aux += "[dir = both]" + j.ToString() + i.ToString() + "->";
+                                    aux += j.ToString() + i.ToString() + "--";
                                 }
                             }else
                             {
                                 if (j == matrizPila.getX() - 1)
                                 {
-                                    aux += j.ToString() + i.ToString() + "->" + j.ToString() + (i - 1).ToString() + " ";
+                                    aux += j.ToString() + i.ToString() + "--" + j.ToString() + (i - 1).ToString() + " ";
                                 }
                                 else
                                 {
-                                    aux += j.ToString() + i.ToString() + "->" + j.ToString() + (i - 1).ToString() + "[dir=both] ";
-                                    aux += j.ToString() + i.ToString() + "->";
+                                    aux += j.ToString() + i.ToString() + "--" + j.ToString() + (i - 1).ToString() + " ";
+                                    aux += j.ToString() + i.ToString() + "--";
                                 }
                                 
                             }
@@ -349,6 +349,11 @@ namespace ListasUsuarios_Matriz
                     }
                     cadena += aux;
                     cadena += "}";
+                    Graficar graficar = new Graficar();
+                    graficar.Construir(cadena, "Matriz");
+                    graficar.GraficarEstructura("Matriz.txt", "C:/EDD");
+                    Imagenes image = new Imagenes("Grafica de Matriz", "C:/EDD/Matriz.jpg");
+                    image.Show();
                 }
                 else
                 {

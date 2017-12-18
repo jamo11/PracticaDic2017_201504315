@@ -122,25 +122,7 @@ namespace ListasUsuarios_Matriz
             }
         }
 
-
-        public void graficarMatriz()
-        {
-            string str = "";
-
-
-
-
-
-
-
-
-
-            Graficar graficar = new Graficar();
-            graficar.Construir(str, "Matriz");
-            graficar.GraficarEstructura("Matriz.txt", "C:/EDD");
-            Imagenes image = new Imagenes("Grafica de Pila", "C:/EDD/Pila.jpg");
-            image.Show();
-        }
+        
         public int getX()
         {
             return x;
